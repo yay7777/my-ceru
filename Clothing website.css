@@ -1,0 +1,542 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Alkia', sans-serif; /* Ensure the font is properly imported */
+  color: #e9ed9d; /* Font color */
+  background-color: #242429; /* Background color */
+}
+
+/* Video Background */
+.landing-video {
+    position: absolute; /* Allows the video to scroll with the content */
+    top: 5vh; /* Position it directly below the header */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 5vh); /* Full height minus header height */
+    overflow: hidden;
+    z-index: -1; /* Send video behind other content */
+}
+
+.landing-video video {
+    width: 100%; /* Ensure video fills the width of the container */
+    height: 100%; /* Ensure video fills the height of the container */
+    object-fit: cover; /* Cover the container without distortion */
+}
+
+
+/* Header Styles */
+.header { 
+    position: relative;
+    padding: 20px; /* Maintain the same padding */
+    background-color: #242429; /* Background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow */
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    height: 5vh; /* Fixed height of 5vh */
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+/* List Items */
+.nav-links li {
+    margin-left: 37px;
+    opacity: 0; /* Start hidden for animation */
+    transform: translateY(-10px); /* Start slightly above */
+    animation: fadeIn 0.5s forwards; /* Animation */
+}
+
+/* Animation Delay for List Items */
+.nav-links li:nth-child(1) { animation-delay: 0.2s; }
+.nav-links li:nth-child(2) { animation-delay: 0.4s; }
+.nav-links li:nth-child(3) { animation-delay: 0.6s; }
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* Fade in */
+        transform: translateY(0); /* Move to original position */
+    }
+}
+
+/* Link Styles */
+.nav-links a {
+    text-decoration: none;
+    color: #e9ed9d; /* Font color */
+    transition: color 0.3s; /* Transition effect for hover */
+}
+
+/* Link Hover Effect */
+.nav-links a:hover {
+    color: #d1d8a8; /* Slightly darker shade on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .nav-links li {
+        margin-left: 20px; /* Reduce margin for smaller screens */
+    }
+}
+
+
+/* Landing Page Styles */
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  color: #e9ed9d; /* Font color */
+}
+
+.landing-content .tagline {
+    font-size: 2.3em; /* Adjust font size as needed */
+    color: #e9ed9d;
+    letter-spacing: 2px;
+    opacity: 0;
+    margin-bottom: 57px;
+    margin-top: 67px;
+    transform: translateY(20px);
+    animation: elevateFade 1.5s ease-out forwards; /* Control duration for elegance */
+}
+
+@keyframes elevateFade {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1.2em;
+    color: #242429;
+    background-color: #e9ed9d;
+    border: none;
+    border-radius: 5px; /* Slightly rounded corners for elegance */
+    text-decoration: none; /* Removes underline */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    transform: scale(1.09); /* Slightly larger on hover */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* Elegant shadow effect */
+}
+
+.cta-button {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: buttonEntrance 0.7s ease-out forwards 0.7s; /* Delay for elegance */
+}
+
+@keyframes buttonEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    50%
+    {
+      opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Adjust the title */
+.wardrobe-title {
+    font-size: 70px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    letter-spacing: 3px;
+    text-align: center; /* Center the title */
+    opacity: 0; /* Start hidden */
+    transform: translateY(-20px); /* Start slightly higher */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transitions */
+}
+
+/* Visible when scrolled into view */
+.wardrobe-title.visible {
+    opacity: 1; /* Make visible */
+    transform: translateY(0); /* Move to original position */
+}
+
+/* Larger Wardrobe Frame */
+.wardrobe-frame {
+    max-width: 1100px; /* Increased for larger display */
+    margin: 0 auto;
+    padding: 100px; /* Reduced padding for a bit more space */
+    background-color: #333;
+    border-radius: 8px;
+}
+
+/* Adjusted Wardrobe Gallery Layout */
+.wardrobe-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 30px; /* Smaller gap for a tighter layout */
+}
+
+/* Product Sizing */
+.main-product, .gallery-item {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.main-product img, .gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+
+/* Product Container */
+.main-product, .gallery-item {
+    position: relative;
+    overflow: hidden;
+    margin: opx 30px 20px 10px;
+    border-radius: 13px;
+}
+
+/* Product Image */
+.main-product img, .gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease; /* Smooth zoom on hover */
+}
+
+/* Hover Overlay for Product Info */
+.product-info {
+    position: absolute;
+    bottom: 0; /* Position at the bottom */
+    left: 0;
+    width: 100%;
+    background-color: transparent; /* No background by default */
+    color: #e9ed9d;
+    opacity: 0; /* Hidden by default */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align text */
+    text-align: center; /* Center text */
+    transition: opacity 0.5s ease; /* Smooth transition for opacity */
+    z-index: 1;
+}
+
+/* Show Overlay on Hover */
+.main-product:hover .product-info,
+.gallery-item:hover .product-info {
+    opacity: 1; /* Make overlay visible */
+}
+
+/* Darken Background Only for the Text Area on Hover */
+.main-product:hover .product-info,
+.gallery-item:hover .product-info {
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background for the text area */
+}
+
+/* Product Title and Description */
+.product-info h3, .product-info p {
+    margin: 0; /* Remove margin */
+    padding: 10px; /* Padding for spacing */
+}
+
+
+/* Image Zoom on Hover */
+.main-product:hover img, .gallery-item:hover img {
+    transform: scale(1.05); /* Slight zoom */
+}
+
+
+
+/* Buy Now Button */
+.buy-now-button {
+    padding: 10px 20px;
+    background-color: #e9ed9d;
+    color: #2c2c34;
+    border: 2px solid #e9ed9d; /* Border for visibility */
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.3em;
+    position: absolute; /* Positioning to align correctly */
+    left: 5%; /* Move button slightly to the left */
+    bottom: 570%; /* Position button slightly up */
+    transition: background-color 0.3s ease, transform 0.5s ease; /* Smooth transitions */
+    text-decoration: none; /* Ensure it's linkable */
+    transform: translateX(-100%); /* Initial position for animation */
+}
+
+/* Button Animation - Slide from Left on Hover */
+/* Button Animation - Slide from Left on Hover */
+.main-product:hover .buy-now-button,
+.gallery-item:hover .buy-now-button { /* Add hover effect for secondary products */
+    transform: translateX(0); /* Slide to visible position */
+    background-color: #2c2c34; /* Change background color on hover */
+    color: #e9ed9d; /* Change text color */
+}
+.contact h2
+{
+  font-size: 29px;
+  letter-spacing: 1px;
+  margin-bottom: 7px;
+}
+
+/* Contact Section Styles */
+.contact {
+  padding: 40px 20px;
+  background-color: #242429; /* Same background color for consistency */
+  text-align: center;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #333; /* Darker input fields */
+  color: #e9ed9d; /* Font color */
+}
+
+.submit-button {
+  background-color: #d4af37; /* Gold color for Send Message button */
+  color: #242429; /* Dark text */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px; /* Space above the button */
+}
+
+.submit-button:hover {
+  background-color: #b89f29; /* Darker gold on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .tagline {
+    font-size: 1.5rem;
+  }
+
+
+    .gallery-item {
+    width: 120px; /* Smaller items on mobile */
+    height: 160px; /* Smaller items on mobile */
+  }
+}
+
+/* Social Media Section */
+.follow-us {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.follow-us h2 {
+    font-size: 29px;
+    color: #e9ed9d; /* Title color */
+    margin-bottom: 37px;
+    letter-spacing: 1px;
+}
+
+.social-icons a {
+    margin: 0 27px;
+    color: #e9ed9d; /* Icon color */
+    text-decoration: none; /* Remove underline */
+    transition: transform 0.3s, color 0.3s; /* Animation effects */
+}
+
+.social-icons a:hover {
+    transform: scale(1.2); /* Scale effect on hover */
+    color: #fff; /* Change color on hover */
+}
+
+/* Ensure the icons are a uniform size */
+.social-icons i {
+    font-size: 29px; /* Icon size */
+    margin-bottom: 23px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #e9ed9d;
+}
+
+.contact-info h3 {
+    font-size: 29px;
+    letter-spacing: 1px;
+    color: #e9ed9d;
+    margin-bottom: 37px;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center-align each line */
+    margin: 5px 0;
+}
+
+.contact-info p strong {
+    min-width: 80px; /* Set width for alignment */
+    font-weight: bold;
+}
+
+.contact-info p span {
+    margin-left: 10px; /* Space between strong and content */
+}
+
+.logo span {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 30px;
+    letter-spacing: 0.7px;
+    color: #e9ed9d;
+    border-right: 3px solid #e9ed9d;
+    animation: typing 4s steps(12) forwards, blink 0.5s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+
+
+.animate {
+   animation: typography-animation 1s ease forwards;
+}
+
+#about h2
+{
+    font-size: 29px;
+    color: #e9ed9d; /* Title color */
+    margin-bottom: 37px;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-top: 20px;
+
+}
+
+#about p
+{
+    justify-content: justify;
+    font-size: 17px;
+    letter-spacing: 2px;
+    padding: 27px 27px 27px 27px;
+}
+
+#about {
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Slightly move down */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transition effects */
+}
+
+#about.visible {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move to original position */
+}
+
+
+/* Animation styles for sections */
+.section {
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Move down */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transition effects */
+}
+
+/* Contact Us Animation */
+.contact.visible {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move to original position */
+    animation: fadeInUp 0.5s forwards; /* Custom animation for contact */
+}
+
+/* Reach Us Animation */
+.contact-info.visible {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move to original position */
+    animation: slideInLeft 0.5s forwards; /* Custom animation for reach us */
+}
+
+/* Follow Us Animation */
+.follow-us.visible {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move to original position */
+    animation: zoomIn 0.5s forwards; /* Custom animation for follow us */
+}
+
+/* Keyframes for animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
